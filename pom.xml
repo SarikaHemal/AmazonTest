@@ -5,17 +5,30 @@
   <version>0.0.1-SNAPSHOT</version>
   <dependencies>
  	<dependency>
-	    <groupId>org.testng</groupId>
-	    <artifactId>testng</artifactId>
-	    <version>7.1.0</version>
-	    <scope>compile</scope>
+  		<groupId>org.testng</groupId>
+  		<artifactId>testng</artifactId>
+  		<version>7.1.0</version>
+  	<scope>compile</scope>
 	</dependency>
+
 	
 	<dependency>
     	<groupId>org.seleniumhq.selenium</groupId>
     	<artifactId>selenium-java</artifactId>
-    	<version>4.0.0-alpha-5</version>
-	</dependency>
+    	<version>4.0.0-alpha-1</version>
+	</dependency> 
+	
+	<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-testng</artifactId>
+    <version>4.0.0</version>
+    </dependency>
+    
+    <dependency>
+    <groupId>com.google.guava</groupId>
+    <artifactId>guava</artifactId>
+    <version>27.1-jre</version>
+</dependency>
 	
 	<dependency>
     <groupId>org.apache.poi</groupId>
