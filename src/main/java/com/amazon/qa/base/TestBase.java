@@ -12,8 +12,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class TestBase {
-	static WebDriver driver;
-	static Properties prop;
+	public static WebDriver driver;
+	public static Properties prop;
 	public TestBase()  {
 		try {
 			prop= new Properties();
@@ -28,7 +28,7 @@ public class TestBase {
 			e.printStackTrace();
 		}
 	}
-	public static void intialization() {
+	public void intialization() {
 		String browserName =prop.getProperty("browser");
 		if (browserName.equals("Chrome")) {
 			System.setProperty("webdriver.chrome.driver","C:\\ChomeDriver\\new\\chromedriver.exe");
@@ -46,7 +46,7 @@ public class TestBase {
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.get("https://www.amazon.com");
+		driver.get(prop.getProperty("url"));
 	}
 		
 
