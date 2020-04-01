@@ -26,7 +26,9 @@ public class SigninPageTest extends TestBase{
 	 }
 	 
 	 @Test
-	 public void validateSigninTest() {
+	 public void validateSigninTest()
+	 {	
+		HomePage.validateSigninButton();
 		HomePage = SigninPage.validaSignin(prop.getProperty("email"), prop.getProperty("password"));
 		Assert.assertEquals(driver.getTitle(),"Your Amazon.com","login success");
 		//String s1=driver.findElement(By.xpath("//span[@class='nav-sprite nav-logo-base']")).getText();

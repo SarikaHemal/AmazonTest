@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.amazon.qa.base.TestBase;
 
 public class SigninPage extends TestBase {
-	HomePage HomePage= new HomePage();
+	
 	public SigninPage() {
 		PageFactory.initElements(driver, this);
 	}
@@ -36,7 +36,7 @@ public class SigninPage extends TestBase {
 		//action.moveToElement(accList).build().perform();
 		//signinBtn.click();
 		
-		HomePage.validateSigninButton();
+		
 		email.sendKeys(un);
 		continueBtn.click();
 		password.sendKeys(pwd);
