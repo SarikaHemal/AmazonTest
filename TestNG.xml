@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+ 
+<suite name="Automation Test" >
+  <test name="Regeration Test"   >
+    <classes>
+       <class name="com.qa.testcase.HomePageTest.java" />
+       <class name="com.qa.testcase.SignPageTest.java" />
+    </classes>
+
+ </test>
+</suite>

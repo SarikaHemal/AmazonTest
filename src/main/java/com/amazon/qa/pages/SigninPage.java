@@ -7,24 +7,42 @@ import org.openqa.selenium.support.PageFactory;
 import com.amazon.qa.base.TestBase;
 
 public class SigninPage extends TestBase {
-	
+	HomePage HomePage= new HomePage();
 	public SigninPage() {
 		PageFactory.initElements(driver, this);
 	}
-	//Account list
-	@FindBy(xpath="//span[contains(text(),'Hello, Sign in')]")
-	WebElement accList;
-	//Singin button
-	@FindBy(xpath="//div[@id='nav-flyout-ya-signin']//a//span[@class='nav-action-inner']")
+	//Email Textbox
+	@FindBy(name="email")
+	WebElement email;
+	
+	//Continue button
+	@FindBy(id="continue")
+	WebElement continueBtn;
+	
+	//Password
+	@FindBy(name="password")
+	WebElement password;
+	
+	//SignIn Submit
+	@FindBy(id="signInSubmit")
 	WebElement signinBtn;
 	
+	
+	
 	//Action
-	public boolean validateSigninButton(){
-		 
-		Actions action=new Actions(driver);
-		action.moveToElement(accList).build().perform();
+	public HomePage validaSignin(String un,String pwd){
+				 
+		//Actions action=new Actions(driver);
+		//action.moveToElement(accList).build().perform();
+		//signinBtn.click();
+		
+		HomePage.validateSigninButton();
+		email.sendKeys(un);
+		continueBtn.click();
+		password.sendKeys(pwd);
 		signinBtn.click();
-		return true;
+		return new HomePage();
+		
 				
 	}
 }
