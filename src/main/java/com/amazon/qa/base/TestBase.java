@@ -10,10 +10,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+
+import com.amazon.qa.util.WebEventListener;
 
 public class TestBase {
 	public static WebDriver driver;
 	public static Properties prop;
+	public  static EventFiringWebDriver e_driver;
+	public static WebEventListener eventListener;
+	
 	public TestBase()  {
 		try {
 			prop= new Properties();
@@ -28,7 +34,7 @@ public class TestBase {
 			e.printStackTrace();
 		}
 	}
-	public void intialization() {
+	public static void intialization() {
 		String browserName =prop.getProperty("browser");
 		if (browserName.equals("Chrome")) {
 			System.setProperty("webdriver.chrome.driver","C:\\ChomeDriver\\new\\chromedriver.exe");
@@ -42,6 +48,13 @@ public class TestBase {
 			System.setProperty("webdriver.ie.driver","C:\\internetexplorerldriver\\iedriverserver.exe");
 			driver = new InternetExplorerDriver();
 		}
+		
+		e_driver = new EventFiringWebDriver(driver);
+		// Now create object of EventListerHandler to register it with EventFiringWebDriver
+		eventListener = new WebEventListener();
+		e_driver.register(eventListener);
+		driver = e_driver;
+		
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
