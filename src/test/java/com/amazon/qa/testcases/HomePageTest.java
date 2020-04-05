@@ -1,6 +1,8 @@
 package com.amazon.qa.testcases;
 
 
+import java.io.IOException;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -38,10 +40,10 @@ public class HomePageTest extends TestBase{
 		 Object data[][]=TestUtil.getTestData(sheetName);
 		 return data;
 	 }
-	 @Test(priority=3,dataProvider="getTestData")
+	/* @Test(priority=3,dataProvider="getTestData")
 	 public void validateAddAddrees() {
 		 
-	 }
+	 }*/
 	 
 	 @Test(priority=2)
 	 public void signinButtonTest() {
@@ -52,7 +54,8 @@ public class HomePageTest extends TestBase{
 	 }
 	 
 	 @AfterMethod
-	 public void tearDown() {
+	 public void tearDown() throws IOException {
+		 TestUtil.takeScreenshotAtEndOfTest();
 		 driver.quit();
 	 }
 

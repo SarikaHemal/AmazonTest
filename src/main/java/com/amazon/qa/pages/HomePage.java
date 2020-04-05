@@ -16,7 +16,7 @@ public class HomePage extends TestBase {
 	WebElement logo;
 	
 	//Account list
-	@FindBy(xpath="//span[contains(text(),'Hello, Sign in')]")
+	@FindBy(xpath="//span[contains(text(),'Hello, Sign in')]11")
 	WebElement accList;
 	
 	//Singin button
